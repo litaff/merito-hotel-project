@@ -1,0 +1,2 @@
+Co to znaczy potrzebne konstruktory, gettery i settery? Czy to mają być te, które zostały wymienione w zadaniu, czy do wszystkiego?
+Co to znaczy odpowiednie modyfikatory dostępu? Nie widzę, żeby były one gdzieś specyfikowane.
