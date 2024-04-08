@@ -1,26 +1,23 @@
 import java.time.LocalTime;
 
 public class TimeService extends SpecialService{
+
+    public TimeService(String name) {
+        super(name);
+    }
+
     @Override
     public void orderService() {
         System.out.println(LocalTime.now());
     }
 
     @Override
-    public String getName() {
-        var splitName = name.split("/");
-        if(splitName.length == 2)
-        {
-            return splitName[1];
-        }
-        else
-        {
-            return "INVALID_SERVICE";
-        }
+    public boolean isServiceAvailableFor(Client client) {
+        return true; // Service currently available for all clients.
     }
 
     @Override
-    public void setName(String name) {
-        this.name = "TIME/" + name;
+    public void queueServiceFor(Room room) {
+        roomQueue.add(room); // Don't check for duplicates as a service can be queued multiple times.
     }
 }

@@ -1,7 +1,7 @@
 import java.time.*;
 
 public class Client {
-    private String id;
+    private String id; // ID should not change once set.
     private String firstName;
     private String lastName;
     private LocalDate birthDate;
@@ -37,5 +37,49 @@ public class Client {
     public String getFullName()
     {
         return firstName + " " + lastName;
+    }
+
+    public String getTravelPurpose() {
+        return travelPurpose;
+    }
+
+    public void setTravelPurpose(String travelPurpose) {
+        this.travelPurpose = travelPurpose;
+    }
+
+    public boolean isNeedsAccessibilityFeature() {
+        return needsAccessibilityFeature;
+    }
+
+    public void setNeedsAccessibilityFeature(boolean needsAccessibilityFeature) {
+        this.needsAccessibilityFeature = needsAccessibilityFeature;
+    }
+
+    public boolean isUnderAged() {
+        return isUnderAged;
+    }
+
+    public void setUnderAged(boolean underAged) {
+        isUnderAged = underAged;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setFirstName(String firstName){
+        this.firstName = firstName;
+    }
+
+    public String getFirstName(){
+        return firstName;
+    }
+
+    public void setLastName(String lastName){
+        this.lastName = lastName;
+    }
+
+    public String getLastName(){
+        return lastName;
     }
 }
