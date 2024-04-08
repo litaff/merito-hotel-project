@@ -13,11 +13,11 @@ public class TimeService extends SpecialService{
 
     @Override
     public boolean isServiceAvailableFor(Client client) {
-        return true; // Service currently available for all clients.
+        return true;
     }
 
     @Override
     public void queueServiceFor(Room room) {
-        roomQueue.add(room); // Don't check for duplicates as a service can be queued multiple times.
+        roomQueue.add(room);
     }
 }

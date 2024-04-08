@@ -16,6 +16,6 @@ public class LuggageService extends SpecialService{
 
     @Override
     public void queueServiceFor(Room room) {
-        roomQueue.add(room); // Don't check for duplicates as a service can be queued multiple times.
+        roomQueue.add(room);
     }
 }
