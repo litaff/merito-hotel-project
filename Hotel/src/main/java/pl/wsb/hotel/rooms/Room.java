@@ -21,6 +21,14 @@ public class Room {
         isAvailable = true;
     }
 
+    public Room(String id, String description, double area, int floor, boolean hasKingSizeBed) {
+        this.id = id;
+        this.description = description;
+        this.area = area;
+        this.floor = floor;
+        this.hasKingSizeBed = hasKingSizeBed;
+    }
+
     public String getId() {
         return id;
     }

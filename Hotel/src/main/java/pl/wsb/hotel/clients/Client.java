@@ -1,6 +1,10 @@
 package pl.wsb.hotel.clients;
 
+import pl.wsb.hotel.rooms.RoomReservation;
+
 import java.time.*;
+import java.util.ArrayList;
+import java.util.Collection;
 
 public class Client {
     private String id; // ID should not change once set.
@@ -10,6 +14,7 @@ public class Client {
     private boolean isUnderAged;
     private boolean needsAccessibilityFeature;
     private String travelPurpose;
+    private ArrayList<RoomReservation> reservationHistory;
 
     public Client(String id, String firstName, String lastName, LocalDate birthDate, boolean needsAccessibilityFeature, String travelPurpose)
     {
@@ -20,6 +25,14 @@ public class Client {
         isUnderAged = getAge() < 18;
         this.needsAccessibilityFeature = needsAccessibilityFeature;
         this.travelPurpose = travelPurpose;
+    }
+
+    public Client(String id, String firstName, String lastName, LocalDate birthDate) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthDate = birthDate;
+        isUnderAged = getAge() < 18;
     }
 
     public int getAge()
@@ -83,5 +96,15 @@ public class Client {
 
     public String getLastName(){
         return lastName;
+    }
+
+    public void addReservationToHistory(RoomReservation reservation)
+    {
+        reservationHistory.add(reservation);
+    }
+
+    public Collection<RoomReservation> getReservationHistory()
+    {
+        return reservationHistory;
     }
 }
