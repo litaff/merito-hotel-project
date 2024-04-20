@@ -1,9 +1,9 @@
 package pl.wsb.hotel;
 
-import pl.wsb.hotel.client.Client;
-import pl.wsb.hotel.room.Room;
-import pl.wsb.hotel.room.RoomReservation;
-import pl.wsb.hotel.service.SpecialService;
+import pl.wsb.hotel.clients.Client;
+import pl.wsb.hotel.rooms.Room;
+import pl.wsb.hotel.rooms.RoomReservation;
+import pl.wsb.hotel.services.SpecialService;
 
 import java.util.ArrayList;
 

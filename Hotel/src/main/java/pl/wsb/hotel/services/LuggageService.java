@@ -1,8 +1,8 @@
-package pl.wsb.hotel.service;
+package pl.wsb.hotel.services;
 
-import pl.wsb.hotel.client.Client;
-import pl.wsb.hotel.client.PremiumClient;
-import pl.wsb.hotel.room.Room;
+import pl.wsb.hotel.clients.Client;
+import pl.wsb.hotel.clients.PremiumClient;
+import pl.wsb.hotel.rooms.Room;
 
 public class LuggageService extends SpecialService{
 
