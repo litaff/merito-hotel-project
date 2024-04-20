@@ -1,3 +1,5 @@
+package pl.wsb.hotel.room;
+
 public class Room {
     private String id; // ID should not change once set
     private String description;

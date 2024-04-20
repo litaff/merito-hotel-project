@@ -1,3 +1,9 @@
+package pl.wsb.hotel.service;
+
+import pl.wsb.hotel.client.Client;
+import pl.wsb.hotel.client.PremiumClient;
+import pl.wsb.hotel.room.Room;
+
 public class LuggageService extends SpecialService{
 
     public LuggageService(String name) {

@@ -1,3 +1,10 @@
+package pl.wsb.hotel;
+
+import pl.wsb.hotel.client.Client;
+import pl.wsb.hotel.room.Room;
+import pl.wsb.hotel.room.RoomReservation;
+import pl.wsb.hotel.service.SpecialService;
+
 import java.util.ArrayList;
 
 public class Hotel {

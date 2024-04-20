@@ -1,3 +1,5 @@
+package pl.wsb.hotel.client;
+
 import java.time.LocalDate;
 
 public class PremiumClient extends Client{

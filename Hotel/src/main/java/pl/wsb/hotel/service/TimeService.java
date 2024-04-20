@@ -1,3 +1,8 @@
+package pl.wsb.hotel.service;
+
+import pl.wsb.hotel.client.Client;
+import pl.wsb.hotel.room.Room;
+
 import java.time.LocalTime;
 
 public class TimeService extends SpecialService{
