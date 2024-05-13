@@ -38,7 +38,6 @@ public class Hotel implements HotelCapability {
     }
 
     public void addService(SpecialService service){
-        if(specialServices.contains(service)) return;
         specialServices.add(service);
     }
 
@@ -51,6 +50,14 @@ public class Hotel implements HotelCapability {
         return specialServices.get(index);
     }
 
+    @Override
+    public String addClient(String firstName, String lastName, LocalDate birthDate) {
+        var uuid = UUID.randomUUID().toString();
+        var client = new Client(uuid, firstName, lastName, birthDate);
+        clients.add(client);
+        return uuid;
+    }
+
     public void removeClient(Client client){
         clients.remove(client);
     }
@@ -58,65 +65,6 @@ public class Hotel implements HotelCapability {
     public Client getClient(int index){
         if(index >= clients.size()) return null;
         return clients.get(index);
-    }
-
-    public void removeReservation(RoomReservation reservation){
-        reservations.remove(reservation);
-    }
-
-    public RoomReservation getReservation(int index){
-        if(index >= reservations.size()) return null;
-        return reservations.get(index);
-    }
-
-    public void removeRoom(Room room){
-        rooms.remove(room);
-    }
-
-    public Room getRoom(int index){
-        if(index >= rooms.size()) return null;
-        return rooms.get(index);
-    }
-
-    @Override
-    public String addClient(String firstName, String lastName, LocalDate birthDate) {
-        var uuid = UUID.randomUUID().toString();
-        var client = new Client(uuid, firstName, lastName, birthDate);
-        return uuid;
-    }
-
-    @Override
-    public String getClientFullName(String clientId) {
-        for (var client : clients) {
-            if(Objects.equals(client.getId(), clientId)) return client.getFullName();
-        }
-        return "";
-    }
-
-    @Override
-    public int getNumberOfUnderageClients() {
-        return (int)clients.stream().filter(Client::isUnderAged).count();
-    }
-
-    @Override
-    public String addRoom(double area, int floor, boolean hasKingSizeBed, String description) {
-        var uuid = UUID.randomUUID().toString();
-        var room = new Room(uuid, description, area, floor, hasKingSizeBed);
-        rooms.add(room);
-        return uuid;
-    }
-
-    @Override
-    public double getRoomArea(String roomId) {
-        for (var room : rooms) {
-            if(Objects.equals(room.getId(), roomId)) return room.getArea();
-        }
-        return 0;
-    }
-
-    @Override
-    public int getNumberOfRoomsWithKingSizeBed(int floor) {
-        return (int)rooms.stream().filter(room -> room.getFloor() == floor && room.isHasKingSizeBed()).count();
     }
 
     @Override
@@ -152,6 +100,58 @@ public class Hotel implements HotelCapability {
         reservations.add(reservation);
 
         return uuid;
+    }
+
+    public void removeReservation(RoomReservation reservation){
+        reservations.remove(reservation);
+    }
+
+    public RoomReservation getReservation(int index){
+        if(index >= reservations.size()) return null;
+        return reservations.get(index);
+    }
+
+    @Override
+    public String addRoom(double area, int floor, boolean hasKingSizeBed, String description) {
+        var uuid = UUID.randomUUID().toString();
+        var room = new Room(uuid, description, area, floor, hasKingSizeBed);
+        rooms.add(room);
+        return uuid;
+    }
+
+    public void removeRoom(Room room){
+        rooms.remove(room);
+    }
+
+    public Room getRoom(int index){
+        if(index >= rooms.size()) return null;
+        return rooms.get(index);
+    }
+
+    @Override
+    public String getClientFullName(String clientId) {
+        for (var client : clients) {
+            if(Objects.equals(client.getId(), clientId)) return client.getFullName();
+        }
+        return "";
+    }
+
+    @Override
+    public int getNumberOfUnderageClients() {
+        return (int)clients.stream().filter(Client::isUnderAged).count();
+    }
+
+    @Override
+    public double getRoomArea(String roomId) {
+        for (var room : rooms) {
+            if(Objects.equals(room.getId(), roomId)) return room.getArea();
+        }
+        return 0;
+    }
+
+    @Override
+    public int getNumberOfRoomsWithKingSizeBed(int floor) {
+        return (int)rooms.stream().filter(room -> room.getFloor() == floor && room.isHasKingSizeBed()).count();
     }
 
     @Override

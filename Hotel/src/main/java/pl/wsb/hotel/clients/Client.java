@@ -25,6 +25,7 @@ public class Client {
         isUnderAged = getAge() < 18;
         this.needsAccessibilityFeature = needsAccessibilityFeature;
         this.travelPurpose = travelPurpose;
+        reservationHistory = new ArrayList<>();
     }
 
     public Client(String id, String firstName, String lastName, LocalDate birthDate) {
@@ -33,10 +34,10 @@ public class Client {
         this.lastName = lastName;
         this.birthDate = birthDate;
         isUnderAged = getAge() < 18;
+        reservationHistory = new ArrayList<>();
     }
 
-    public int getAge()
-    {
+    public int getAge() {
         // Get seconds since birth in unix time
         var secondsSinceBirth = LocalDate.now().toEpochSecond(LocalTime.of(0,0,0), ZoneOffset.UTC) -
                 birthDate.toEpochSecond(LocalTime.of(0,0,0), ZoneOffset.UTC);
@@ -62,7 +63,7 @@ public class Client {
         this.travelPurpose = travelPurpose;
     }
 
-    public boolean isNeedsAccessibilityFeature() {
+    public boolean getNeedsAccessibilityFeature() {
         return needsAccessibilityFeature;
     }
 
@@ -103,7 +104,7 @@ public class Client {
         reservationHistory.add(reservation);
     }
 
-    public Collection<RoomReservation> getReservationHistory()
+    public ArrayList<RoomReservation> getReservationHistory()
     {
         return reservationHistory;
     }
